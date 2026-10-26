@@ -5,8 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.annotation.processing.Generated;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -26,7 +25,7 @@ public class ItemPerdido {
     private String localEncontrado;
 
     @Column(name = "data_achado")
-    private Date dataAchado;
+    private LocalDateTime dataAchado;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status_item")
