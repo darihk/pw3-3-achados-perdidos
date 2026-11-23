@@ -9,6 +9,6 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface ItemPerdidoMapper {
-    List<ItemPerdido> toItensResponseDTO(List<ItemPerdido> entities);
+    List<ItemPerdidoDTO> toItensResponseDTO(List<ItemPerdido> entities);
     ItemPerdidoDTO toItemReponseDTO(ItemPerdido entity);
 }

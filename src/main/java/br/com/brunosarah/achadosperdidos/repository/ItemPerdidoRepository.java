@@ -9,6 +9,6 @@ import java.util.Optional;
 
 public interface ItemPerdidoRepository extends JpaRepository<ItemPerdido, Long> {
 
-    Optional<ItemPerdido> findByIdItemPerdido(Long idItemPerdido);
-    List<ItemPerdido> findItens();
+    List<ItemPerdido> findByStatusItem(StatusItemEnum statusItem);
+
 }
