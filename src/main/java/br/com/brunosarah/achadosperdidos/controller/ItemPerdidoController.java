@@ -87,6 +87,6 @@ public class ItemPerdidoController {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(Map.of("mensagem", erro.getMessage()));
-    }g
+    }
 
 }
