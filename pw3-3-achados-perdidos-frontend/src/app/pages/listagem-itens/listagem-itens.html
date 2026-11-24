@@ -23,9 +23,9 @@
     </button>
   </div>
 
-  <p *ngIf="mensagemErro()" class="erro">
+    <p class="erro" *ngIf="mensagemErro()">
     {{ mensagemErro() }}
-  </p>
+    </p>
 
   <table *ngIf="itens().length > 0">
     <thead>
@@ -57,7 +57,7 @@
           <button [routerLink]="['/editar-item', item.id]">
             Editar
           </button>
-          
+
           <button (click)="excluirItem(item.id)">
             Excluir
           </button>

@@ -47,12 +47,16 @@ export class ListagemItens implements OnInit {
     const confirmar = confirm('Deseja realmente excluir este item?');
 
     if (confirmar) {
+      this.mensagemErro.set('');
+
       this.itemService.excluirItem(id).subscribe({
         next: () => {
           this.listarItens();
         },
-        error: () => {
-          this.mensagemErro.set('Não foi possível excluir o item.');
+        error: (erro) => {
+          this.mensagemErro.set(
+            erro.error?.mensagem || 'Não foi possível excluir o item.'
+          );
         }
       });
     }
@@ -69,12 +73,16 @@ export class ListagemItens implements OnInit {
       return;
     }
 
+    this.mensagemErro.set('');
+
     this.itemService.atualizarStatus(item.id, novoStatus).subscribe({
       next: () => {
         this.listarItens();
       },
-      error: () => {
-        this.mensagemErro.set('Não foi possível atualizar o status.');
+      error: (erro) => {
+        this.mensagemErro.set(
+          erro.error?.mensagem || 'Não foi possível atualizar o status.'
+        );
       }
     });
   }

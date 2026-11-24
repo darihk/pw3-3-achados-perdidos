@@ -9,12 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import java.util.Map;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/api/itens")
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ItemPerdidoController {
 
     @Autowired
@@ -76,5 +79,14 @@ public class ItemPerdidoController {
 
         return ResponseEntity.ok(result.get());
     }
+
+    @ExceptionHandler(IllegalStateException.class)
+    public ResponseEntity<Map<String, String>> tratarErroDeRegraDeNegocio(
+            IllegalStateException erro) {
+
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(Map.of("mensagem", erro.getMessage()));
+    }g
 
 }
