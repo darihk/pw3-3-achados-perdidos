@@ -1,0 +1,64 @@
+<div class="container">
+  <h1>Achados e Perdidos</h1>
+
+  <h2>Itens encontrados</h2>
+
+  <div class="filtros">
+    <button
+      type="button"
+      [class.selecionado]="statusSelecionado() === null"
+      (click)="filtrarPorStatus(null)">
+      Todos
+    </button>
+
+    <button
+      type="button"
+      [class.selecionado]="statusSelecionado() === 'PERDIDO'"
+      (click)="filtrarPorStatus('PERDIDO')">
+      Perdidos
+    </button>
+  </div>
+
+  <p *ngIf="mensagemErro()" class="erro">
+    {{ mensagemErro() }}
+  </p>
+
+  <table *ngIf="itens().length > 0">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Local encontrado</th>
+        <th>Data do achado</th>
+        <th>Status</th>
+        <th>Descrição da devolução</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of itens()">
+        <td>{{ item.nomeItem }}</td>
+        <td>{{ item.localEncontrado }}</td>
+        <td>{{ item.dataAchado | date:'dd/MM/yyyy HH:mm' }}</td>
+        <td>{{ item.statusItem }}</td>
+        <td>{{ item.descricaoDevolucao || 'Não informado' }}</td>
+
+        <td>
+          <button
+            *ngIf="item.statusItem !== 'DEVOLVIDO'"
+            (click)="atualizarStatus(item)">
+            {{ item.statusItem === 'PERDIDO' ? 'Reivindicar' : 'Concluir devolução' }}
+          </button>
+
+          <button (click)="excluirItem(item.id)">
+            Excluir
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="itens().length === 0 && !mensagemErro()">
+    Nenhum item encontrado.
+  </p>
+</div>

@@ -1,0 +1,74 @@
+.container {
+  width: 90%;
+  margin: 30px auto;
+  font-family: Arial, sans-serif;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 40px;
+  min-width: 100px;
+
+  padding: 10px 16px;
+
+  border: none;
+  border-radius: 6px;
+
+  cursor: pointer;
+  background-color: #333;
+  color: white;
+
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+th {
+  background-color: #eee;
+}
+
+td button {
+  margin: 4px;
+}
+
+.erro {
+  color: red;
+  text-align: center;
+}
+
+.filtros button {
+  min-width: 120px;
+}
