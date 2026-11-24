@@ -3,6 +3,10 @@
 
   <h2>Itens encontrados</h2>
 
+  <button type="button" routerLink="/novo-item">
+    Cadastrar novo item
+  </button>
+
   <div class="filtros">
     <button
       type="button"
@@ -50,6 +54,10 @@
             {{ item.statusItem === 'PERDIDO' ? 'Reivindicar' : 'Concluir devolução' }}
           </button>
 
+          <button [routerLink]="['/editar-item', item.id]">
+            Editar
+          </button>
+          
           <button (click)="excluirItem(item.id)">
             Excluir
           </button>

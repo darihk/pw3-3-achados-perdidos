@@ -2,11 +2,12 @@ import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ItemPerdidoService } from '../../services/item-perdido-service';
 import { ItemPerdido, StatusItem } from '../../models/item-perdido';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-listagem-itens',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './listagem-itens.html',
   styleUrl: './listagem-itens.css'
 })
